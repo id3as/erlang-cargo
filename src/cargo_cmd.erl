@@ -123,7 +123,7 @@ patch_on_windows(Cmd) ->
 env() ->
     case os:type() of
         {unix, darwin} ->
-            [{"RUSTFLAGS", "--codegen 'link-args=-flat_namespace -undefined suppress'"}];
+            [{"RUSTFLAGS", "--codegen link-args=-Wl,-undefined,dynamic_lookup"}];
         _ ->
             []
     end.
